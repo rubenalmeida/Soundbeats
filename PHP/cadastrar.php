@@ -101,7 +101,7 @@ utilizado.<br /><br />";
 // Inserindo os dados no banco de dados
 
 
-        $sql = mysqli_query($link, "INSERT INTO usuarios (nome, sobrenome, email, usuario, senha, data_cadastro, ativado) VALUES ('$nome', '$sobrenome', '$email', '$usuario', '$senhaf', now(), '1')")
+        $sql = mysqli_query($link, "INSERT INTO usuarios (nome, sobrenome, email, usuario, senha, data_cadastro, ativado) VALUES ('$nome', '$sobrenome', '$email', '$usuario', '$senhaf', now(), '0')")
 
         or die( mysqli_error($link)
 

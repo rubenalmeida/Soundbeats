@@ -1,5 +1,4 @@
 <?php
-
 session_start(); // Inicia a session
 
 include "config.php";
@@ -36,9 +35,7 @@ if ((!$usuario) || (!$senha)){
             $_SESSION['email'] = $email;
             $_SESSION['nivel_usuario'] = $nivel_usuario;
 
-            mysqli_query($link, "UPDATE usuarios SET data_ultimo_login = now() WHERE usuario_id ='{$usuario_id}'"
-
-            );
+            mysqli_query($link, "UPDATE usuarios SET data_ultimo_login = now() WHERE usuario_id ='$usuario_id'");
 
             header("Location: area_restrita.php");
 
@@ -47,12 +44,10 @@ if ((!$usuario) || (!$senha)){
     }else{
 
         echo "Você não pode logar-se! Este usuário e/ou senha não são válidos!<br />
-Por favor tente novamente!<br />";
+              Por favor tente novamente!<br/>";
 
         include "formulario_login.php";
 
     }
 
 }
-
-?>

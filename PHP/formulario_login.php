@@ -11,7 +11,7 @@
 
 Login <br /><br />
 
-<form action="../../Projeto_Musix/_BD/verifica_usuario.php" method="post" id="login">
+<form action="verifica_usuario.php" method="post" id="login">
 
     Usuário<br />
     <input name="usuario" type="text" id="usuario" /><br />
@@ -19,11 +19,11 @@ Login <br /><br />
     Senha<br />
     <input name="senha" type="password" id="senha" /><br /><br />
 
-    <input type="submit" name="Submit" value="Login" / >
+    <input type="submit" name="Submit" value="Login" />
 
 </form>
 
-<br /><a href="../../Projeto_Musix/_BD/formulario_senha_perdida.html" >- Não lembra a  sua senha?</a>
+<br /><a href="../HTML/formulario_senha_perdida.html" >- Não lembra a  sua senha?</a>
 
 
 

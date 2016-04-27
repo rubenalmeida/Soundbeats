@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpProjectServersManager">
+    <servers>
+      <server host="ftp://waws-prod-cq1-003.ftp.azurewebsites.windows.net" id="9f574463-31dd-4283-a36a-bbba2f49f83b" name="azure" port="21" />
+    </servers>
+  </component>
+</project>
