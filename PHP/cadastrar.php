@@ -108,10 +108,43 @@ utilizado.<br /><br />";
             echo "Ocorreu um erro ao criar sua conta, entre em contato.";
 
         }else{
+            $usuario_id = mysql_insert_id();
 
-            echo "Voce foi cadastrado <br> Foi enviado para seu email - ( ".$email." ) um pedido de
-confirmação de cadastro, por favor verifique e sigas as instruções!";
+            // Enviar um email ao usuário para confirmação e ativar o cadastro!
 
+            $headers = "MIME-Version: 1.0\n";
+            $headers .= "Content-type: text/html; charset=iso-8859-1\n";
+            $headers .= "From: Teu Domínio - Webmaster<email@teusite.com.br>";
+
+            $subject = "Confirmação de cadastro - teusite.com.br";
+            $mensagem  = "Prezado  {$nome} {$sobrenome},<br />
+            Obrigado pelo seu cadastro em nosso site, <a href='http://soundbeats.azurewebsites.net/HTML/index.html'>
+            http://soundbeats.azurewebsites.net/HTML/index.html</a>!<br /> <br /> 
+
+            Para confirmar seu cadastro e ativar sua conta em nosso site, podendo acessar à
+            áreas exclusivas, por favor clique no link abaixo ou copie e cole na barra de
+            endereço do seu navegador.<br /> <br />
+
+            <a href='http://soundbeats.azurewebsites.net/PHP/ativar.php?id={$usuario_id}&code={$senha}'>
+            http://soundbeats.azurewebsites.net/PHP/ativar.php?id={$usuario_id}&code={$senha}
+            </a>
+
+            <br /> <br />
+            Após a ativação de sua conta, você poderá ter acesso ao conteúdo exclusivo
+            efetuado o login com os seguintes dados abaixo:<br > <br /> 
+
+            <strong>Usuario</strong>: {$usuario}<br />
+            <strong>Senha</strong>: {$senhaf}<br /> <br />
+                
+            Obrigado!<br /> <br /> 
+
+            Webmaster<br /> <br /> <br />
+            Esta é uma mensagem automática, por favor não responda!";
+
+            mail($email, $subject, $mensagem, $headers);
+
+            echo "Foi enviado para seu email - ( ".$email." ) um pedido de
+            confirmação de cadastro, por favor verifique e sigas as instruções!";
         }
 
     }
