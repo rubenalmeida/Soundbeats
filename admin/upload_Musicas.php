@@ -2,7 +2,7 @@
 
 include "config.php";
  
-if(isset($_REQUEST['file']))
+if(isset($_POST['file']))
 {
         $errors= array();
  
@@ -43,4 +43,6 @@ if(isset($_REQUEST['file']))
         );      
 
         $insert = $wpdb->insert($table, $data);
+}  else {
+    echo 'Selecione um arquivo';
 }
