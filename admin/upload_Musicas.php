@@ -2,29 +2,45 @@
 
 include "config.php";
  
-//recupera os dados enviados atraves do formulário
-//NOME TEMPORÁRIO
-$file_tmp = $_FILES["file"]["tmp_name"];
- //NOME DO ARQUIVO NO COMPUTADOR
-$file_name = $_FILES["file"]["name"];
-//TAMANHO DO ARQUIVO
-$file_size = $_FILES["file"]["size"];
-//MIME DO ARQUIVO
-$file_type = $_FILES["file"]["type"];
+if(isset($_REQUEST['file']))
+{
+        $errors= array();
  
-//antes de ler o conteudo do arquivo você pode fazer upload para compactar em .ZIP ou .RAR, no caso de imagem você poderá redimensionar o tamanho antes de gravar no banco. Claro que depende da sua necessidade.
- 
-//Para fazer UPLOAD poderá usar COPY ou MOVE_UPLOADED_FILE
-//copy($file_tmp, "caminho/pasta/$file_name");
-//move_uploaded_file($file_tmp,"caminho/pasta/$file_name");
- 
-//lemos o  conteudo do arquivo usando afunção do PHP  file_get_contents
-$soundbeats = file_get_contents($file_tmp);
-// evitamos erro de sintaxe do MySQL
-$soundbeats2 = mysql_real_escape_string($soundbeats);
- 
-//montamos o SQL para envio dos dados
-$sql = "INSERT INTO `soundbeats`.`musicas` (`Codigo` ,`NmArquivo` ,`Descricao` , `Arquivo` ,`Tipo` ,`Tamanho` ,`DtHrEnvio`)
-VALUES ('NULL', 'foto.jpg', '$file_name', '$soundbeats', '$file_type', '$file_size', CURRENT_TIMESTAMP)";
-//executamos a instução SQL
-mysqli_query($link, $sql) or die (mysqli_connect_error());
+        $file_name = $_FILES["file"]["name"];
+        $file_tmp = $_FILES["file"]["tmp_name"];
+        $file_size = $_FILES["file"]["size"];
+        $file_type = $_FILES["file"]["type"];
+        $file_ext=strtolower(end(explode('.',$_FILES['file']['name'])));
+        $path = "upload/".$file_name;
+
+        $expensions= array("mp3");
+
+        if(in_array($file_ext,$expensions)=== false)
+        {
+            $errors[]="extension not allowed, please choose a mp3 file.";
+        }
+
+        if($file_size > 10485760)
+        {
+            $errors[]='File size must be excately 10 MB';
+        }
+
+        if(empty($errors)==true)
+        {
+            move_uploaded_file($file_tmp,"upload/".$file_name);
+            echo "Success";
+        }
+        else
+        {
+            print_r($errors);
+        }
+
+
+        $table = $wpdb->prefix."image";
+        $data = array( 
+                 
+                    'image_path'    => $path 
+        );      
+
+        $insert = $wpdb->insert($table, $data);
+}
