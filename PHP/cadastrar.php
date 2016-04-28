@@ -1,66 +1,23 @@
 <?php
 
-include "config.php";
+include 'config.php';
 
-$nome = trim($_POST['nome']);
-$sobrenome = trim($_POST['sobrenome']);
-$email = trim($_POST['email']);
-$usuario = trim($_POST['usuario']);
-$senhat = trim($_POST['senha']);
-
-/* Vamos checar algum erro nos campos */
-
-if ((!$nome) || (!$sobrenome) || (!$email) || (!$usuario) || (!$senhat)){
-
-    echo "ERRO: <br /><br />";
-
-    if (!$nome){
-
-        echo "Nome é requerido.<br />";
-
-    }
-
-    if (!$sobrenome){
-
-        echo "Sobrenome é requerido.<br /> <br />";
-
-    }
-
-    if (!$email){
-
-        echo "Email é um campo requerido.<br /><br />";
-
-    }
-
-    if (!$usuario){
-
-        echo "Nome de Usuário é requerido.<br /><br />";
-
-    }
-
-    if(!$senhat) {
-        echo "A senha é requerida.<br /><br />";
-    }
-
-    echo "Preencha os campos abaixo: <br /><br />";
-
-    include "formulario_cadastro.php";
-
-}else{
-
+    
+    $nome = filter_input(INPUT_POST, "nome");
+    $sobrenome = filter_input(INPUT_POST, "sobrenome");
+    $email = filter_input(INPUT_POST, "email");
+    $usuario = filter_input(INPUT_POST, "usuario");
+    $senhat = filter_input(INPUT_POST, "senha");
+    
+    
+    
     /* Vamos checar se o nome de Usuário escolhido e/ou Email já existem no banco de dados */
-
-    $sql_email_check = mysqli_query($link,
-
-        "SELECT COUNT(usuario_id) FROM usuarios WHERE email='{$email}'"
-
-    );
-
-    $sql_usuario_check = mysqli_query($link,
-
-        "SELECT COUNT(usuario_id) FROM usuarios WHERE usuario='{$usuario}'"
-
-    );
+    
+    $query1 ="SELECT COUNT(usuario_id) FROM usuarios WHERE email='{$email}'";
+    $sql_email_check = mysqli_query($link, $query1);
+    
+    $query2 ="SELECT COUNT(usuario_id) FROM usuarios WHERE usuario='{$usuario}'";
+    $sql_usuario_check = mysqli_query($link, $query2);
 
     $eReg = mysqli_fetch_array($sql_email_check);
     $uReg = mysqli_fetch_array($sql_usuario_check);
@@ -100,10 +57,10 @@ utilizado.<br /><br />";
 
 // Inserindo os dados no banco de dados
 
-
-        $sql = mysqli_query($link, "INSERT INTO usuarios (nome, sobrenome, email, usuario, senha, data_cadastro, ativado) VALUES ('$nome', '$sobrenome', '$email', '$usuario', '$senhaf', now(), '0')") or die( mysqli_error($link));
-
-        if (!$sql){
+        
+        $query3 = "INSERT INTO usuarios (nome, sobrenome, email, usuario, senha, data_cadastro, ativado) VALUES ('$nome', '$sobrenome', '$email', '$usuario', '$senhaf', now(), '0')";
+        $result = @mysqli_query($link, $query3);
+        if (!$result){
 
             echo "Ocorreu um erro ao criar sua conta, entre em contato.";
 
@@ -149,6 +106,5 @@ utilizado.<br /><br />";
 
     }
 
-}
 
-?>
+  

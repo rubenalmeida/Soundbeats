@@ -2,8 +2,8 @@
 
 include "config.php";
 
-$usuario_id = $_REQUEST['id'];
-$senha = $_REQUEST['code'];
+$usuario_id = (int) filter_input ( $_REQUEST['id'], FILTER_VALIDATE_INT );
+$senha =  (int) filter_var( $_REQUEST['code'], FILTER_VALIDATE_INT);
 
 $sql = mysql_query(
 
