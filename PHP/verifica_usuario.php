@@ -15,7 +15,7 @@ if ((!$usuario) || (!$senha)){
 }else{
 
    // $sql = mysqli_query($link, "SELECT * FROM usuarios WHERE usuario='$usuario' AND senha='$senha'");
-    $result = mysqli_query($link, "SELECT * FROM usuarios WHERE usuario='$usuario' AND senha='$senha'");
+    $result = mysql_query("SELECT * FROM usuarios WHERE usuario='$usuario' AND senha='$senha'");
 
     $login_check = mysql_num_rows($result);
 
@@ -37,16 +37,18 @@ if ((!$usuario) || (!$senha)){
 
             mysqli_query($link, "UPDATE usuarios SET data_ultimo_login = now() WHERE usuario_id ='$usuario_id'");
 
-            header("Location: area_restrita.php");
+            echo "Login Concluido!";
+            
+            //header("Location: area_restrita.php");
 
         }
 
     }else{
 
-        echo "Você não pode logar-se! Este usuário e/ou senha não são válidos!<br />
+        echo "Voce nao pode logar-se! Este usuario e/ou senha nao sao validos!<br />
               Por favor tente novamente!<br/>";
 
-        include "formulario_login.php";
+        include "./telaLogin.html";
 
     }
 

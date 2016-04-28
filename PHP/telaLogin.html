@@ -1,56 +1,48 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-
+<html lang="en">
+  <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
 
-    <title>INSPINIA | Login</title>
+    <title>Login</title>
 
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="../CSS/bootstrap/bootstrap.min.css" rel="stylesheet">
 
-    <link href="../css/animate.css" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
+   
 
-</head>
+    <!-- Custom styles for this template -->
+    <link href="../CSS/signin.css" rel="stylesheet">
 
-<body class="gray-bg">
+ 
 
-<div class="middle-box text-center loginscreen animated fadeInDown">
-    <div>
-        <div>
+  </head>
 
-            <h1 class="logo-name">Musix</h1>
+  <body>
 
+    <div class="container">
+
+        <form class="form-signin" action="verifica_usuario.php" method="post">
+        <h2 class="form-signin-heading">Confirme sua identidade</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="text" id="inputEmail" name="usuario" class="form-control" placeholder="Email" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" name="senha" class="form-control" placeholder="Senha" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
         </div>
-        <h3>Bem-Vindo ao Musix</h3>
-        <p>Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
-            <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
-        </p>
-        <p>Login in. To see it in action.</p>
-        
-        <form  action="../PHP/verifica_usuario.php" method="POST" >
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nome de usuario" required="">
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control" placeholder="Senha" required="">
-            </div>
-            <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+      </form>
 
-            <a href="../_telas/formulario_senha_perdida.html"><small>Esqueceu sua senha?</small></a>
-            <p class="text-muted text-center"><small>Você não é cadastrado?</small></p>
-            <a class="btn btn-sm btn-white btn-block" href="../PHP/formulario_cadastro.php">Criar uma conta!</a>
-        </form>
-    </div>
-</div>
+    </div> <!-- /container -->
 
-<!-- Mainly scripts -->
-<script src="js/jquery-2.1.1.js"></script>
-<script src="js/bootstrap.min.js"></script>
 
-</body>
-
+  </body>
 </html>
