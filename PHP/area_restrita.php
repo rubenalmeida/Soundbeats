@@ -1,3 +1,8 @@
+<html>
+    <head>
+        <title>area restrita</title>
+    </head>
+    <body>
 <?php
 
 session_start(); // Inicia a session
@@ -25,10 +30,8 @@ if ($_SESSION['nivel_usuario'] == 1){
 Acesso total <br /><br />";
 
 }
-
-/* Não colocarei representações para outros níveis de acesso, mas fica entendido que o
-limite de níveis de acesso quem define é você*/
-
-echo ">Sair</a>";
-
 ?>
+        <a href="logout.php">Logof</a>
+    </body>
+</html>
+
