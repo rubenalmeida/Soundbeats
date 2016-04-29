@@ -1,23 +1,31 @@
 <?php
 
-
 session_start(); // Inicia a session
 
 include "../PHP/config.php";
 
-$usuario = $_POST['usuario'];
-$senha = $_POST['senha'];
+$usuario = filter_input(INPUT_POST, "usuario");
+$senha = filter_input(INPUT_POST, "senha");
+
+$usuario2 = $_POST['usuario'];
+$senha2 = $_POST['senha'];
 
 if ((!$usuario) || (!$senha)){
 
     echo "Por favor, todos campos devem ser preenchidos! <br /><br />";
 
-    include "./singin.html";
+    ob_clean();
+    header('location: singin.html');
+//    include "./singin.html";
 
 }else{
 
-    $sql = mysql_query("SELECT * FROM usuarios WHERE usuario='$usuario' AND senha='$senha'");
-    $result = mysql_query($sql);
+    $sql ="SELECT * FROM usuarios WHERE usuario='$usuario2' AND senha='$senha2'";
+    
+    
+    //echo "SELECT * FROM usuarios WHERE usuario='$usuario2' AND senha='$senha2'" ; die;
+    
+    $result = mysqli_query($link, $sql);
     $login_check = mysql_num_rows($result);
 
     if ($login_check > 0){
@@ -26,7 +34,7 @@ if ((!$usuario) || (!$senha)){
 
             foreach ($row AS $key => $val){
 
-                $$key = stripslashes( $val );
+                $key = stripslashes( $val );
 
             }
 
@@ -38,7 +46,7 @@ if ((!$usuario) || (!$senha)){
 
             mysqli_query($link, "UPDATE usuarios SET data_ultimo_login = now() WHERE usuario_id ='$usuario_id'");
 
-            header("Location: area_restrita.php");
+            header("Location: cadastros.php");
 
         }
 
@@ -47,7 +55,7 @@ if ((!$usuario) || (!$senha)){
         echo "Voce nao pode logar-se! Este usuario e/ou senha nao sao validos!<br />
               Por favor tente novamente!<br/>";
 
-        include "./singin.html";
+        include "singin.html";
 
     }
 
