@@ -4,7 +4,7 @@ function session_checker(){
 
     if (!isset($_SESSION['usuario_id'])){
 
-        header ("Location: telaLogin.html");
+         header ("Location: singin.html");
         exit();
 
     }

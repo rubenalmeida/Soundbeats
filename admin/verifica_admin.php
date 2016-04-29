@@ -1,62 +1,52 @@
 <?php
-
 session_start(); // Inicia a session
 
-include "../PHP/config.php";
+include "config.php";
 
-$usuario = filter_input(INPUT_POST, "usuario");
-$senha = filter_input(INPUT_POST, "senha");
+$usuario = $_POST['usuario'];
+$senha = $_POST['senha'];
 
-$usuario2 = $_POST['usuario'];
-$senha2 = $_POST['senha'];
 
-if ((!$usuario) || (!$senha)){
-
-    echo "Por favor, todos campos devem ser preenchidos! <br /><br />";
-
-    ob_clean();
-    header('location: singin.html');
-//    include "./singin.html";
-
-}else{
-
-    $sql ="SELECT * FROM usuarios WHERE usuario='$usuario2' AND senha='$senha2'";
-    
-    
-    //echo "SELECT * FROM usuarios WHERE usuario='$usuario2' AND senha='$senha2'" ; die;
-    
+    $sql = "SELECT * FROM usuarios WHERE usuario='$usuario' AND senha='$senha'";
     $result = mysqli_query($link, $sql);
-    $login_check = mysql_num_rows($result);
+
+    $login_check = mysqli_num_rows($result);
 
     if ($login_check > 0){
 
-        while ($row = mysqli_fetch_array($result,MYSQLI_NUM)){
-
-            foreach ($row AS $key => $val){
-
-                $key = stripslashes( $val );
-
-            }
-
-            $_SESSION['usuario_id'] = $usuario_id;
-            $_SESSION['nome'] = $nome;
-            $_SESSION['sobrenome'] = $sobrenome;
-            $_SESSION['email'] = $email;
-            $_SESSION['nivel_usuario'] = $nivel_usuario;
+        $registros = array();
+        while ($row = mysqli_fetch_assoc($result)){
+            
+            $registros[] = $row;
+        }
+       
+        
+         foreach ($registros as $usuario){
+            
+              $usuario_id = $usuario['usuario_id'] ;
+              $_SESSION['usuario_id'] = $usuario_id; 
+              
+              $nome = $usuario['nome'] ;
+              $_SESSION['nome'] = $nome  ; 
+            
+              $sobrenome = $usuario['sobrenome'] ;
+              $_SESSION['sobrenome'] = $sobrenome; 
+            
+              $nivel_usuario = $usuario['nivel_usuario'] ;
+              $_SESSION['nivel_usuario'] = $nivel_usuario; 
 
             mysqli_query($link, "UPDATE usuarios SET data_ultimo_login = now() WHERE usuario_id ='$usuario_id'");
-
-            header("Location: cadastros.php");
-
-        }
-
+           
+            header("Location: area_restrita.php");
+               
+          }
     }else{
 
         echo "Voce nao pode logar-se! Este usuario e/ou senha nao sao validos!<br />
+              Ou voce nao ativou sua conta.
               Por favor tente novamente!<br/>";
 
-        include "singin.html";
+        include "telaLogin.html";
 
     }
 
-}

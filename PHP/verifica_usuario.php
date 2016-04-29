@@ -6,50 +6,47 @@ include "config.php";
 $usuario = $_POST['usuario'];
 $senha = $_POST['senha'];
 
-if ((!$usuario) || (!$senha)){
 
-    echo "Por favor, todos campos devem ser preenchidos! <br /><br />";
+    $sql = "SELECT * FROM usuarios WHERE usuario='$usuario' AND senha='$senha'";
+    $result = mysqli_query($link, $sql);
 
-    include "telaLogin.html";
-
-}else{
-
-   // $sql = mysqli_query($link, "SELECT * FROM usuarios WHERE usuario='$usuario' AND senha='$senha'");
-    $result = mysql_query("SELECT * FROM usuarios WHERE usuario='$usuario' AND senha='$senha'");
-
-    $login_check = mysql_num_rows($result);
+    $login_check = mysqli_num_rows($result);
 
     if ($login_check > 0){
 
-        while ($row = mysqli_fetch_array($result,MYSQLI_NUM)){
-
-            foreach ($row AS $key => $val){
-
-                $$key = stripslashes( $val );
-
-            }
-
-            $_SESSION['usuario_id'] = $usuario_id;
-            $_SESSION['nome'] = $nome;
-            $_SESSION['sobrenome'] = $sobrenome;
-            $_SESSION['email'] = $email;
-            $_SESSION['nivel_usuario'] = $nivel_usuario;
+        $registros = array();
+        while ($row = mysqli_fetch_assoc($result)){
+            
+            $registros[] = $row;
+        }
+       
+        
+         foreach ($registros as $usuario){
+            
+              $usuario_id = $usuario['usuario_id'] ;
+              $_SESSION['usuario_id'] = $usuario_id; 
+              
+              $nome = $usuario['nome'] ;
+              $_SESSION['nome'] = $nome  ; 
+            
+              $sobrenome = $usuario['sobrenome'] ;
+              $_SESSION['sobrenome'] = $sobrenome; 
+            
+              $nivel_usuario = $usuario['nivel_usuario'] ;
+              $_SESSION['nivel_usuario'] = $nivel_usuario; 
 
             mysqli_query($link, "UPDATE usuarios SET data_ultimo_login = now() WHERE usuario_id ='$usuario_id'");
-
-            echo "Login Concluido!";
-            
-            //header("Location: area_restrita.php");
-
-        }
-
+           
+            header("Location: area_restrita.php");
+               
+          }
     }else{
 
         echo "Voce nao pode logar-se! Este usuario e/ou senha nao sao validos!<br />
+              Ou voce nao ativou sua conta.
               Por favor tente novamente!<br/>";
 
-        include "./telaLogin.html";
+        include "telaLogin.html";
 
     }
 
-}

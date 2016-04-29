@@ -105,6 +105,8 @@ utilizado.<br /><br />";
 
             echo "Foi enviado para seu email - ( ".$email." ) um pedido de
             confirmação de cadastro, por favor verifique e sigas as instruções!";
+            
+             header('location: telaLogin.html');
         }
 
     

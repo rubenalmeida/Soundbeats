@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="132bf80a-55b0-47d1-afa9-acbc818b6571" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PHP/ativar.php" afterPath="$PROJECT_DIR$/PHP/ativar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PHP/cadastrar.php" afterPath="$PROJECT_DIR$/PHP/cadastrar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PHP/config.php" afterPath="$PROJECT_DIR$/PHP/config.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/functionsAdmin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PHP/functions.php" afterPath="$PROJECT_DIR$/PHP/functions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PHP/logout.php" afterPath="$PROJECT_DIR$/PHP/logout.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PHP/verifica_usuario.php" afterPath="$PROJECT_DIR$/PHP/verifica_usuario.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/cad_Albums.html" afterPath="$PROJECT_DIR$/admin/cad_Albums.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/cad_Artistas.html" afterPath="$PROJECT_DIR$/admin/cad_Artistas.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/cad_musicas.html" afterPath="$PROJECT_DIR$/admin/cad_musicas.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/cadastros.php" afterPath="$PROJECT_DIR$/admin/cadastros.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/verifica_admin.php" afterPath="$PROJECT_DIR$/admin/verifica_admin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
     </list>
     <ignored path="Soundbeats.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,7 +40,7 @@
             <state vertical-scroll-proportion="0.14099526">
               <caret line="7" column="103" selection-start-line="7" selection-start-column="103" selection-end-line="7" selection-end-column="103" />
               <folding>
-                <marker date="1461807560189" expanded="true" signature="108:152" placeholder="INSERT INTO artistas..." />
+                <marker date="1461938989911" expanded="true" signature="108:152" placeholder="INSERT INTO artistas..." />
               </folding>
             </state>
           </provider>
@@ -42,7 +50,7 @@
         <entry file="file://$PROJECT_DIR$/PHP/cadastrar.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="63" column="229" selection-start-line="63" selection-start-column="229" selection-end-line="63" selection-end-column="229" />
+              <caret line="63" column="23" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -62,7 +70,7 @@
         <entry file="file://$PROJECT_DIR$/admin/cad_Artistas.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -129,7 +137,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -192,6 +199,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -270,7 +278,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26066098" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26279318" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -310,7 +318,75 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1461807560189" expanded="true" signature="108:152" placeholder="INSERT INTO artistas..." />
+            <marker date="1461938989911" expanded="true" signature="108:152" placeholder="INSERT INTO artistas..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/cadastrar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="63" column="229" selection-start-line="63" selection-start-column="229" selection-end-line="63" selection-end-column="229" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/cad_Artistas.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/upload_Artistas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1461938989911" expanded="true" signature="108:152" placeholder="INSERT INTO artistas..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/cadastrar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="63" column="229" selection-start-line="63" selection-start-column="229" selection-end-line="63" selection-end-column="229" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/cad_Artistas.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/upload_Artistas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1461938989911" expanded="true" signature="108:152" placeholder="INSERT INTO artistas..." />
           </folding>
         </state>
       </provider>
@@ -424,7 +500,7 @@
     <entry file="file://$PROJECT_DIR$/admin/cad_Artistas.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -447,7 +523,7 @@
     <entry file="file://$PROJECT_DIR$/PHP/cadastrar.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="229" selection-start-line="63" selection-start-column="229" selection-end-line="63" selection-end-column="229" />
+          <caret line="63" column="23" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -457,7 +533,7 @@
         <state vertical-scroll-proportion="0.14099526">
           <caret line="7" column="103" selection-start-line="7" selection-start-column="103" selection-end-line="7" selection-end-column="103" />
           <folding>
-            <marker date="1461807560189" expanded="true" signature="108:152" placeholder="INSERT INTO artistas..." />
+            <marker date="1461938989911" expanded="true" signature="108:152" placeholder="INSERT INTO artistas..." />
           </folding>
         </state>
       </provider>

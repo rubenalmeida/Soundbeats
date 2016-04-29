@@ -19,7 +19,11 @@
     
     </head>
     <body>
-
+        <?php
+        
+            include "functionsAdmin.php"; 
+            session_checker(); 
+        ?>
         <ul class="nav nav-tabs">
             <li role="presentation"><a href="cad_musicas.html">Musicas</a></li>
             <li role="presentation"><a href="cad_Artistas.html">Artistas</a></li>

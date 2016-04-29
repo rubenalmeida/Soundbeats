@@ -1,8 +1,8 @@
 <?php
 echo '<pre>';
-$conexao = mysqli_connect('localhost', 'root', 'iesb', 'escola');
+$conexao = mysqli_connect("br-cdbr-azure-south-b.cloudapp.net", "b812cd591460c2", "86dc0a6e", "soundbeats");
 
-$sql = "select * from curso";
+$sql = "select * from usuarios";
 
 $resultado = mysqli_query($conexao, $sql);
 
@@ -28,8 +28,8 @@ print_r($registros);
             </tr>
             <?PHP foreach ($registros as $curso){?>
                 <tr>
-                    <td><?php echo $curso['id_curso']; ?></td>
-                    <td><?php echo $curso['nome']; ?></td>
+                    <td><?php echo $curso['usuario_id']; ?></td>
+                    <td><?php echo $curso['usuario']; ?></td>
                 </tr>
           
             <?php }?>
@@ -38,3 +38,8 @@ print_r($registros);
     </body>
 </html>
 
+$usuario_id = $_SESSION['usuario_id'] ;
+             $nome = $_SESSION['nome'];
+             $sobrenome = $_SESSION['sobrenome'];
+             $email = $_SESSION['email'];
+             $nivel_usuario = $_SESSION['nivel_usuario'];
