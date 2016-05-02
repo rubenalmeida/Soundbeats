@@ -28,9 +28,9 @@
         ?>
 
         <ul class="nav nav-tabs">
-            <li role="presentation"><a href="cad_musicas.html">Musicas</a></li>
-            <li role="presentation"><a href="cad_Artistas.html">Artistas</a></li>
-            <li role="presentation"><a href="cad_Albums.html">Albums</a></li>
+            <li role="presentation"><a href="cad_musicas.php">Musicas</a></li>
+            <li role="presentation"><a href="cad_Artistas.php">Artistas</a></li>
+            <li role="presentation"><a href="cad_Albums.php">Albums</a></li>
         </ul>
         
         <div class="panel panel-primary">

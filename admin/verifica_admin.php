@@ -1,7 +1,8 @@
 <?php
 session_start(); // Inicia a session
 
-include "config.php";
+include "../php/config.php";
+include_once 'functionsAdmin.php';
 
 $usuario = $_POST['usuario'];
 $senha = $_POST['senha'];
@@ -37,7 +38,12 @@ $senha = $_POST['senha'];
 
             mysqli_query($link, "UPDATE usuarios SET data_ultimo_login = now() WHERE usuario_id ='$usuario_id'");
            
-            header("Location: area_restrita.php");
+            //header("Location.href=javascript:history.back(-1)");
+            $var = "<script>javascript:history.back(-2 )</script>";
+            echo $var;
+          
+            
+           
                
           }
     }else{
@@ -46,7 +52,7 @@ $senha = $_POST['senha'];
               Ou voce nao ativou sua conta.
               Por favor tente novamente!<br/>";
 
-        include "telaLogin.html";
+        include "login.html";
 
     }
 

@@ -74,7 +74,7 @@ utilizado.<br /><br />";
 
             $headers = "MIME-Version: 1.0\n";
             $headers .= "Content-type: text/html; charset=iso-8859-1\n";
-            $headers .= "From: Teu Domínio - Webmaster<email@teusite.com.br>";
+            $headers .= "From: Teu Domínio - Webmaster<rubensantosdealmeida@live.com>";
             
             $subject = "Confirmação de cadastro - teusite.com.br";
             $mensagem  = "Prezado  {$nome} {$sobrenome},<br />
@@ -101,12 +101,12 @@ utilizado.<br /><br />";
             Webmaster<br /> <br /> <br />
             Esta é uma mensagem automática, por favor não responda!";
 
-            mail("ruben36almeida96@gmail.com", $subject, $mensagem, $headers);
+            mail("rubensantosdealmeida@live.com", $subject, $mensagem, $headers);
 
             echo "Foi enviado para seu email - ( ".$email." ) um pedido de
             confirmação de cadastro, por favor verifique e sigas as instruções!";
             
-             header('location: telaLogin.html');
+            // header('location: telaLogin.html');
         }
 
     

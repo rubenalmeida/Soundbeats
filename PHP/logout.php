@@ -12,7 +12,7 @@ if (!isset($_REQUEST['logmeout'])){
 
     session_destroy();
 
-    if (!session_is_registered('nome')){
+    if (!session_is_registered('usuario_id')){
 
         echo "<strong>Você não está mais logado em nosso site!</strong>";
         echo "<br /><br /><strong>Login:</strong><br /><br />";

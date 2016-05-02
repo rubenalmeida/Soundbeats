@@ -18,22 +18,24 @@
     </head>
     <body>
         <?php
-        
-            include "functionsAdmin.php"; 
+        include "functionsAdmin.php"; 
             session_checker(); 
         ?>
 
         <ul class="nav nav-tabs">
-            <li role="presentation"><a href="cad_musicas.html">Musicas</a></li>
-            <li role="presentation"><a href="cad_Artistas.html">Artistas</a></li>
-            <li role="presentation"><a href="cad_Albums.html">Albums</a></li>
+            <li role="presentation"><a href="cad_musicas.php">Musicas</a></li>
+            <li role="presentation"><a href="cad_Artistas.php">Artistas</a></li>
+            <li role="presentation"><a href="cad_Albums.php">Albums</a></li>
         </ul>
         
         <div class="panel panel-primary">
-            <div class="panel-heading">Albums</div>
-            <form id="upload" action="#" enctype="multipart/form-data" method="post">
+            <div class="panel-heading">Arquivos</div>
+            <form id="upload" action="upload_Musicas.php" enctype="multipart/form-data" method="post">
                 
-               Em Breve!
+                <label for="file">Selecione o arquivo:</label>
+                <input  id="file" name="file" type="file" />
+                
+                <input id="enviar" name = "enviar" type="submit" value="Enviar arquivooo" />
                 
             </form>
         </div>

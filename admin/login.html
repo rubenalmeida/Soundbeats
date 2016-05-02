@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-
+   
     <title>Login Administrador</title>
 
+    
+   
+    
     <!-- Bootstrap core CSS -->
     <link href="../CSS/bootstrap/bootstrap.min.css" rel="stylesheet">
 
@@ -27,12 +27,15 @@
 
     <div class="container">
 
-        <form class="form-signin" action="verifica_admin.php" method="post">
+        <form class="form-signin" action="verifica_admin.php" method="post" name="form_login">
         <h2 class="form-signin-heading">Confirme sua identidade</h2>
+        
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="text" id="inputEmail" name="usuario"  placeholder="usuario" required autofocus>
+        <input type="text" id="inputEmail" name="usuario"  class="form-control" placeholder="usuario" required autofocus>
+        
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" name="senha" class="form-control" placeholder="Senha" required>
+        
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me
@@ -40,7 +43,7 @@
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
       </form>
-
+ 
     </div> <!-- /container -->
 
 
