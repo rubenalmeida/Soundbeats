@@ -2,14 +2,16 @@
 
 include "../PHP/config.php";
 
-$nome = $_POST['nome'];
+$nome = filter_input(INPUT_POST, "nome");
+$info = filter_input(INPUT_POST, "info");
+ 
 
 if(isset($nome)){
- $sql = mysqli_query($link,"INSERT INTO artistas (nome) VALUES ('$nome')") or die(mysqli_error($link));
+ $sql = mysqli_query($link, "INSERT INTO artistas (nome , info) VALUES ('$nome', '$info')") or die(mysqli_error($link));
 
  echo 'Cadastrado com sucesso';
- include "cad_Artistas.html";
+ include "cad_Artistas.php";
 }else {
     echo 'Preencha o campo';
-    include "cad_Artistas.html";
+    include "cad_Artistas.php";
 }

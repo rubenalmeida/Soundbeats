@@ -1,30 +1,26 @@
 <html>
     <head>
-        <title>cadastros</title>
+        <title>Cadastros</title>
         <meta charset="utf-8">
         
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-
-
-
+    <?php include 'tabelas.php';  ?>
+    
     <!-- Bootstrap core CSS -->
     <link href="../CSS/bootstrap/bootstrap.min.css" rel="stylesheet">
     
     
-
-
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+     
+     <link rel="stylesheet" href="../CSS/form-basic.css">
     </head>
     <body>
         <?php
         
             include "functionsAdmin.php"; 
-            session_checker(); 
+            //session_checker(); 
         ?>
 
         <ul class="nav nav-tabs">
@@ -33,16 +29,43 @@
             <li role="presentation"><a href="cad_Albums.php">Albums</a></li>
         </ul>
         
+        
         <div class="panel panel-primary">
             <div class="panel-heading">Artistas</div>
-            <form id="upload" action="upload_Artistas.php" enctype="multipart/form-data" method="post">
+            
                 
-                <label for="nome">Nome do artista</label>
-                <input  id="nome" name="nome" type="text"/>
+                <div class="main-content">
+
+                    <form id="upload" class="form-basic" method="post" action="upload_Artistas.php">
+
+            <div class="form-title-row">
+                <h1>Informações</h1>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    <span>Nome do artista:</span>
+                    <input type="text" name="nome">
+                </label>
+            </div>
+
+            <div class="form-row">
                 
-                <input id="enviar" name = "enviar" type="submit" value="cadastrar artista" />
+                <label>
+                    <span>Info:</span>
+                    <textarea name="info" placeholder="Opcional"></textarea>
+                </label>
                 
-            </form>
+            </div>
+                        
+            <div class="form-row">
+                <button type="submit">Cadastrar</button>
+            </div>
+
+        </form>
+
+    </div>
+        
         </div>
             
         

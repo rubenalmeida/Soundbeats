@@ -2,10 +2,9 @@
 session_start(); // Inicia a session
 
 include "../php/config.php";
-include_once 'functionsAdmin.php';
 
-$usuario = $_POST['usuario'];
-$senha = $_POST['senha'];
+$usuario = filter_input(INPUT_POST, "usuario");
+$senha = filter_input(INPUT_POST, "senha");
 
 
     $sql = "SELECT * FROM usuarios WHERE usuario='$usuario' AND senha='$senha'";
@@ -38,13 +37,8 @@ $senha = $_POST['senha'];
 
             mysqli_query($link, "UPDATE usuarios SET data_ultimo_login = now() WHERE usuario_id ='$usuario_id'");
            
-            //header("Location.href=javascript:history.back(-1)");
-            $var = "<script>javascript:history.back(-2 )</script>";
-            echo $var;
-          
-            
-           
-               
+            header('Location: cadastros.php');
+    
           }
     }else{
 

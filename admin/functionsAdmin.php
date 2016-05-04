@@ -4,15 +4,9 @@ function session_checker(){
 
     if (!isset($_SESSION['usuario_id'])){
 
-         header ("Location: login.html");
-        exit();
+         //header ("Location: login.html");
+        
 
     }
 
 }
-function back(){
-   
-    //history.go(-1);
-    javascript:history.go(-1);
-}
-

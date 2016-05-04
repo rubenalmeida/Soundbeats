@@ -19,7 +19,7 @@
     <body>
         <?php
         include "functionsAdmin.php"; 
-            session_checker(); 
+            //session_checker(); 
         ?>
 
         <ul class="nav nav-tabs">
